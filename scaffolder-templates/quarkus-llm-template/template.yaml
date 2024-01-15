@@ -133,7 +133,7 @@ spec:
         values:
           component_id: {{ '${{ parameters.component_id }}' }}
           description: {{ '${{ parameters.description }}' }}
-          namespace: {{ '${{ parameters.component_id }}' }}-dev
+          namespace: {{ '${{ parameters.component_id }}' }}
           group_id: {{ '${{ parameters.group_id }}' }}
           artifact_id: {{ '${{ parameters.artifact_id }}' }}
           java_package_name: {{ '${{ parameters.java_package_name }}' }}
