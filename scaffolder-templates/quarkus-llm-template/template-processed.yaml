@@ -80,7 +80,6 @@ spec:
                   title: Image Host
                   type: string
                   description: Host for storing image
-                  default: {{ quay_host }}
                 image_organization:
                   title: Organization
                   type: string
@@ -103,16 +102,13 @@ spec:
               title: Repo Host
               type: string
               description: Your SCM host
-              default: {{ gitlab_host }}
-              enum:
-                - {{ gitlab_host }}
             owner:
               title: Repo Owner
               type: string
               description: Your SCM host organization/group
-              default: {{ gitlab_destination_group }}
+              default: development
               enum:
-                - {{ gitlab_destination_group }}
+                - development
     - title: Large Language Model information
       required:
         - llm_url:
