@@ -111,7 +111,7 @@ spec:
                 - development
     - title: Large Language Model information
       required:
-        - llm_url:
+        - llm_url
       properties:
         llm_url:
           title: Large Language Model URL
