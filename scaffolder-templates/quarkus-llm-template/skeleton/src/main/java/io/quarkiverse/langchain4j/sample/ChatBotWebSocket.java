@@ -1,6 +1,9 @@
 package io.quarkiverse.langchain4j.sample;
 
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 
 import jakarta.inject.Inject;
 import jakarta.websocket.*;
@@ -8,10 +11,16 @@ import jakarta.websocket.server.ServerEndpoint;
 
 import org.eclipse.microprofile.context.ManagedExecutor;
 
-import io.smallrye.mutiny.infrastructure.Infrastructure;
-
 @ServerEndpoint("/chatbot")
 public class ChatBotWebSocket {
+
+    private static String PROMPT;
+    
+    static {
+        String company_prompt = readFromInputStream(ChatBotWebSocket.class.getResourceAsStream("/prompts/company_prompt.md"));
+        String application_prompt = readFromInputStream(ChatBotWebSocket.class.getResourceAsStream("/prompts/application_prompt.md"));
+        PROMPT = company_prompt + "\n" + application_prompt;
+    }
 
     @Inject
     Bot bot;
@@ -25,7 +34,7 @@ public class ChatBotWebSocket {
     @OnOpen
     public void onOpen(Session session) {
         managedExecutor.execute(() -> {
-            String response = bot.chat(session, "Hello. \n");
+            String response = bot.chat(session, "Hello. \n", PROMPT);
             try {
                 session.getBasicRemote().sendText(response);
             } catch (IOException e) {
@@ -44,7 +53,7 @@ public class ChatBotWebSocket {
         managedExecutor.execute(() -> {
             String m = message.replace("<p>", "\n");
             m = m.replace("</p>", "\n");
-            String response = bot.chat(session, m);
+            String response = bot.chat(session, m, PROMPT);
             try {
                 session.getBasicRemote().sendText(response);
             } catch (IOException e) {
@@ -52,6 +61,22 @@ public class ChatBotWebSocket {
             }
         });
 
+    }
+
+    private static String readFromInputStream(InputStream inputStream) {
+        try {
+            StringBuilder resultStringBuilder = new StringBuilder();
+            try (BufferedReader br = new BufferedReader(new InputStreamReader(inputStream))) {
+                String line;
+                while ((line = br.readLine()) != null) {
+                    resultStringBuilder.append(line).append("\n");
+                }
+            }
+            return resultStringBuilder.toString();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return "";
     }
 
 }

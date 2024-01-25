@@ -2,14 +2,14 @@ site_name: ${{values.component_id}}
 site_description: ${{values.description}}
 repo_url: https://${{values.host}}/${{values.destination}}
 edit_uri: edit/master/docs
+docs_dir: src/main/resources
 
 plugins:
   - techdocs-core
 
 # Note for content editors, edit only the section below
 nav:
-  - Onboard a developer to OpenShift: onboard-openshift.md
-  - Application Migration:
-      - Migration Process Overview: application-migration/migration-process-overview.md
-      - Migration Process Steps: application-migration/migration-process-steps.md
-      - Learning Path for Developers: application-migration/learning-path-for-developers.md
+  - Overview: index.md
+  - Prompts:
+      - Application Prompt: prompts/application_prompt.md
+      - Company Prompt: prompts/company_prompt.md

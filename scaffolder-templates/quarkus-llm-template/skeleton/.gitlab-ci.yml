@@ -22,8 +22,9 @@ stages:          # List of stages for jobs, and their order of execution
 build-job:
   rules:
   - changes:
-    - 'docs/**/*'
+    - 'src/main/resources/index.md'
     - 'mkdocs.yaml'
+    - 'src/main/resources/prompts/**/*'
   variables:
     ENTITY_NAMESPACE: 'default'
     ENTITY_KIND: 'Component'
