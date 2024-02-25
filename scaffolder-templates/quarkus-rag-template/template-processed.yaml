@@ -2,7 +2,7 @@ apiVersion: scaffolder.backstage.io/v1beta3
 kind: Template
 metadata:
   name: quarkus-llm-template
-  title: Quarkus GenAI Service with Redis Vector Database
+  title: Quarkus GenAI Service with Redis Vector Database 2
   description: Create a simple Generative AI service using Quarkus with Redis Vector Database
   tags:
     - recommended
@@ -80,7 +80,7 @@ spec:
                   title: Image Host
                   type: string
                   description: Host for storing image
-                  default: quay-c6rb5.apps.cluster-c6rb5.sandbox1010.opentlc.com
+                  default: quay-c6rb5.apps.cluster-c6rb5.sandbox2623.opentlc.com
                 image_organization:
                   title: Organization
                   type: string
@@ -103,7 +103,7 @@ spec:
               title: Repo Host
               type: string
               description: Your SCM host
-              default: gitlab-gitlab.apps.cluster-c6rb5.sandbox1010.opentlc.com
+              default: gitlab-gitlab.apps.cluster-c6rb5.sandbox2623.opentlc.com
             owner:
               title: Repo Owner
               type: string
@@ -148,7 +148,7 @@ spec:
           artifact_id: ${{ parameters.artifact_id }}
           java_package_name: ${{ parameters.java_package_name }}
           owner: ${{ user.entity.metadata.name }}
-          cluster: .apps.cluster-c6rb5.sandbox1010.opentlc.com
+          cluster: .apps.cluster-c6rb5.sandbox2623.opentlc.com
           host: ${{ parameters.repo.host }}
           destination: ${{ parameters.repo.owner }}/${{ parameters.component_id }}
           quay_destination: ${{ parameters.image_organization}}/${{ parameters.component_id }}
@@ -183,7 +183,7 @@ spec:
           source_repository: https://${{ parameters.repo.host }}/${{ parameters.repo.owner }}/${{parameters.component_id}}.git
           repository_name: ${{parameters.component_id}}
           git_owner: ${{ parameters.repo.owner }}
-          cluster: .apps.cluster-c6rb5.sandbox1010.opentlc.com
+          cluster: .apps.cluster-c6rb5.sandbox2623.opentlc.com
           namespace: ${{ parameters.component_id }}-dev
           image_registry: ${{ parameters.image_registry }}
           image_host: ${{ parameters.image_host }}
