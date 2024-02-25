@@ -1,0 +1,15 @@
+site_name: ${{values.component_id}}
+site_description: ${{values.description}}
+repo_url: https://${{values.host}}/${{values.destination}}
+edit_uri: edit/master/docs
+docs_dir: src/main/resources
+
+plugins:
+  - techdocs-core
+
+# Note for content editors, edit only the section below
+nav:
+  - Overview: index.md
+  - Prompts:
+      - Application Prompt: prompts/application_prompt.md
+      - Company Prompt: prompts/company_prompt.md
