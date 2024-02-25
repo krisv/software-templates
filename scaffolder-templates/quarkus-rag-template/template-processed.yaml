@@ -2,7 +2,7 @@ apiVersion: scaffolder.backstage.io/v1beta3
 kind: Template
 metadata:
   name: quarkus-llm-template
-  title: Quarkus GenAI Service with Redis Vector Database 2
+  title: Quarkus GenAI Service with Redis Vector Database 3
   description: Create a simple Generative AI service using Quarkus with Redis Vector Database
   tags:
     - recommended
