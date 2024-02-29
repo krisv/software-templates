@@ -1,9 +1,9 @@
 apiVersion: scaffolder.backstage.io/v1beta3
 kind: Template
 metadata:
-  name: quarkus-llm-template
-  title: Quarkus GenAI Service with ArgoCD and a Tekton Pipeline 2
-  description: Create a simple Generative AI service using Quarkus with ArgoCD and a Tekton Pipeline
+  name: quarkus-llm-template3
+  title: Quarkus GenAI Service with ArgoCD and a Tekton Pipeline 3
+  description: Create a simple Generative AI service using Quarkus with ArgoCD and a Tekton Pipeline 3
   tags:
     - recommended
     - java
