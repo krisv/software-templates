@@ -2,7 +2,7 @@ apiVersion: scaffolder.backstage.io/v1beta3
 kind: Template
 metadata:
   name: quarkus-llm-template
-  title: Quarkus GenAI Service with ArgoCD and a Tekton Pipeline
+  title: Quarkus GenAI Service with ArgoCD and a Tekton Pipeline 2
   description: Create a simple Generative AI service using Quarkus with ArgoCD and a Tekton Pipeline
   tags:
     - recommended
@@ -136,7 +136,7 @@ spec:
           artifact_id: ${{ parameters.artifact_id }}
           java_package_name: ${{ parameters.java_package_name }}
           owner: ${{ user.entity.metadata.name }}
-          cluster: gitlab-gitlab.apps.cluster-fn9t2.sandbox2616.opentlc.com
+          cluster: .apps.cluster-fn9t2.sandbox2616.opentlc.com
           host: ${{ parameters.repo.host }}
           destination: ${{ parameters.repo.owner }}/${{ parameters.component_id }}
           quay_destination: ${{ parameters.image_organization}}/${{ parameters.component_id }}
@@ -171,7 +171,7 @@ spec:
           source_repository: https://${{ parameters.repo.host }}/${{ parameters.repo.owner }}/${{parameters.component_id}}.git
           repository_name: ${{parameters.component_id}}
           git_owner: ${{ parameters.repo.owner }}
-          cluster: gitlab-gitlab.apps.cluster-fn9t2.sandbox2616.opentlc.com
+          cluster: .apps.cluster-fn9t2.sandbox2616.opentlc.com
           namespace: ${{ parameters.component_id }}-dev
           image_registry: ${{ parameters.image_registry }}
           image_host: ${{ parameters.image_host }}
